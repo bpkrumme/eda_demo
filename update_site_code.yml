@@ -9,4 +9,4 @@
     - name: update our index.html content
       copy:
         src: index.html
-        dest: /var/www/html/index.html
+        dest: /var/www/html/
