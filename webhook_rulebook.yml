@@ -1,6 +1,6 @@
 ---
 - name: Listen for events on a webhook
-  hosts: localhost
+  hosts: all
   sources:
     - ansible.eda.webhook:
       host: 0.0.0.0
@@ -8,7 +8,7 @@
 
   rules:
     - name: Push event to repository
-      condition: event.payload.repository.sender.login == "bpkrumme"
+      condition: event.payload.repository.name == "eda_demo"
       action:
         run_playbook:
           name: update_site_code.yml
