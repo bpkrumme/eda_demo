@@ -1,6 +1,6 @@
 ---
 - name: update the index.html of our basic website
-  hosts: eda
+  hosts: localhost
   become: true
   tasks:
     - name: testing webhook

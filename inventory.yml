@@ -1,0 +1,144 @@
+all:
+  children:
+    aap:
+      hosts:
+        aap01.bk.lab: {}
+        aap02.bk.lab: {}
+        aap03.bk.lab: {}
+      vars:
+        ansible_timesync_ntp_servers:
+        - hostname: 0.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 1.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 2.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 3.redhat.pool.ntp.org
+          iburst: true
+        ipaadmin_password: R3dH4tBr4d!
+        ipaadmin_principal: admin
+        ipaclient_domain: bk.lab
+        ipaclient_mkhomedir: true
+    aap-db:
+      hosts:
+        aap-db.bk.lab: {}
+      vars:
+        ansible_timesync_ntp_servers:
+        - hostname: 0.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 1.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 2.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 3.redhat.pool.ntp.org
+          iburst: true
+        ipaadmin_password: R3dH4tBr4d!
+        ipaadmin_principal: admin
+        ipaclient_domain: bk.lab
+        ipaclient_mkhomedir: true
+    eda:
+      hosts:
+        eda.bk.lab: {}
+      vars:
+        ansible_timesync_ntp_servers:
+        - hostname: 0.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 1.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 2.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 3.redhat.pool.ntp.org
+          iburst: true
+        ipaadmin_password: R3dH4tBr4d!
+        ipaadmin_principal: admin
+        ipaclient_domain: bk.lab
+        ipaclient_mkhomedir: true
+    ipareplicas:
+      hosts:
+        idm02.bk.lab: {}
+      vars:
+        ansible_timesync_ntp_servers:
+        - hostname: 0.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 1.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 2.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 3.redhat.pool.ntp.org
+          iburst: true
+        ipaadmin_password: R3dH4tBr4d!
+        ipaadmin_principal: admin
+        ipadm_password: R3dH4tBr4d!
+        ipareplica_domain: bk.lab
+        ipareplica_forwarders:
+        - 1.1.1.1
+        - 1.0.0.1
+        ipareplica_setup_ca: true
+        ipareplica_setup_dns: true
+    ipaserver:
+      hosts:
+        idm01.bk.lab: {}
+      vars:
+        ansible_timesync_ntp_servers:
+        - hostname: 0.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 1.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 2.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 3.redhat.pool.ntp.org
+          iburst: true
+        ipaadmin_password: R3dH4tBr4d!
+        ipadm_password: R3dH4tBr4d!
+        ipaserver_auto_forwarders: true
+        ipaserver_auto_reverse: true
+        ipaserver_domain: bk.lab
+        ipaserver_no_host_dns: true
+        ipaserver_realm: BK.LAB
+        ipaserver_setup_dns: true
+    labhost:
+      hosts:
+        lab.bk.local: {}
+    satellite:
+      hosts:
+        satellite.bk.lab: {}
+      vars:
+        ansible_timesync_ntp_servers:
+        - hostname: 0.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 1.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 2.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 3.redhat.pool.ntp.org
+          iburst: true
+        ipaadmin_password: R3dH4tBr4d!
+        ipaadmin_principal: admin
+        ipaclient_domain: bk.lab
+        ipaclient_mkhomedir: true
+        satellite_installer_options:
+        - --foreman-initial-organization "Lab"
+        - --foreman-initial-location "HomeLab"
+        - --foreman-initial-admin-username admin
+        - --foreman-initial-admin-password R3dH4tBr4d!
+        satellite_installer_package: satellite
+        satellite_installer_scenario: satellite
+        satellite_version: '6.11'
+    ungrouped: {}
+    utility:
+      hosts:
+        utility.bk.lab: {}
+      vars:
+        ansible_timesync_ntp_servers:
+        - hostname: 0.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 1.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 2.redhat.pool.ntp.org
+          iburst: true
+        - hostname: 3.redhat.pool.ntp.org
+          iburst: true
+        ipaadmin_password: R3dH4tBr4d!
+        ipaadmin_principal: admin
+        ipaclient_domain: bk.lab
+        ipaclient_mkhomedir: true
