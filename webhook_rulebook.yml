@@ -1,14 +1,14 @@
 ---
 - name: Listen for events on a webhook
-  hosts: all
+  hosts: localhost
   sources:
     - ansible.eda.webhook:
-      host: redhatbrad.ngrok.io
+      host: 0.0.0.0
       port: 8080
 
   rules:
     - name: Push event to repository
-      condition: event.payload.head_commit.modified == index.html
+      condition: event.payload.head_commit.modified == "appcode/index.html"
       action:
         run_playbook:
           name: update_site_code.yml

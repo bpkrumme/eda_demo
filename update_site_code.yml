@@ -1,0 +1,12 @@
+---
+- name: update the index.html of our basic website
+  hosts: eda
+  become: true
+  tasks:
+    - name: testing webhook
+      debug:
+        msg: webhook successful!
+#    - name: update our index.html content
+#      copy:
+#        src: appcode/index.html
+#        dest: /var/www/html/index.html
