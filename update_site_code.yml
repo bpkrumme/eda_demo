@@ -7,6 +7,6 @@
 #      debug:
 #        msg: webhook successful!
     - name: update our index.html content
-      copy:
-        src: index.html
+      ansible.builtin.copy:
+        src: /home/bkrumme/ansibleprojects/eda_demo/files/index.html
         dest: /var/www/html/
