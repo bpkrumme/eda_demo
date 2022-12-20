@@ -8,4 +8,7 @@
 
   rules:
     - name: Push event to repository
-      condition: event.payload.
+      condition: event.payload.head_commit.modified == index.html
+      action:
+        run_playbook:
+          name: update_site_code.yml
