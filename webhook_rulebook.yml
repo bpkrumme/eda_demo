@@ -1,0 +1,11 @@
+---
+- name: Listen for events on a webhook
+  hosts: all
+  sources:
+    - ansible.eda.webhook:
+      host: redhatbrad.ngrok.io
+      port: 8080
+
+  rules:
+    - name: Push event to repository
+      condition: event.payload.
