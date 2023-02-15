@@ -1,12 +1,13 @@
 ---
-- name: update the index.html of our basic website
+- name: Update the index.html of our basic website
   hosts: eda
   become: true
   tasks:
 #    - name: testing webhook
 #      debug:
 #        msg: webhook successful!
-    - name: update our index.html content
+    - name: Update our index.html content
       ansible.builtin.copy:
         src: /home/bkrumme/ansibleprojects/eda_demo/files/index.html
         dest: /var/www/html/
+        mode: 0600
