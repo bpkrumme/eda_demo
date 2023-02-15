@@ -8,7 +8,7 @@
 
   rules:
     - name: Push event to repository
-      condition: event.payload.commits.modified is search "index.html"
+      condition: event.payload.repository.name == "eda_demo"
       action:
         run_playbook:
           name: update_site_code.yml
