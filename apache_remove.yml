@@ -1,0 +1,27 @@
+---
+- name: Remove apache
+  hosts: managed
+  become: true
+  tasks:
+    - name: Remove http service in firewalld
+      ansible.posix.firewalld:
+        service: http
+        permanent: true
+        state: disabled
+        immediate: true
+
+    - name: Remove index.html
+      ansible.builtin.file:
+        path: /var/www/html/index.html
+        state: absent
+
+    - name: Stop and disable apache
+      ansible.builtin.service:
+        name: httpd
+        state: stopped
+        enabled: false
+
+    - name: Uninstall apache
+      ansible.builtin.yum:
+        name: httpd
+        state: absent

@@ -1,6 +1,6 @@
 ---
 - name: Update the index.html of our basic website
-  hosts: eda
+  hosts: managed
   become: true
   tasks:
 #    - name: testing webhook
@@ -10,4 +10,4 @@
       ansible.builtin.copy:
         src: /home/bkrumme/ansibleprojects/eda_demo/files/index.html
         dest: /var/www/html/
-        mode: 0644
+        mode: '0644'
