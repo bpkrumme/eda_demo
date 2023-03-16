@@ -1,11 +1,5 @@
 <body>
-    <h1>Welcome to our automated page!</h1>
+    <h1>Welcome to our automated page!
     <br>
-    <h2>The last update to this page was on</h2>
-    <br>
-    <h1>{{ ansible_date_time.date }}</h1>
-    <br>
-    <h2>at</h2>
-    <br>
-    <h1>{{ ansible_date_time.time }}</h1>
+    The last update to this page was on {{ ansible_date_time.date }} at {{ ansible_date_time.time }}</h1>
 </body>
