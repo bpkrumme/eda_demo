@@ -8,6 +8,6 @@
 #        msg: webhook successful!
     - name: Update our index.html content
       ansible.builtin.template:
-        src: /home/bkrumme/ansibleprojects/eda_demo/files/index.html.j2
+        src: /home/bkrumme/ansibleprojects/eda_demo/templates/index.html.j2
         dest: /var/www/html/index.html
         mode: '0644'
