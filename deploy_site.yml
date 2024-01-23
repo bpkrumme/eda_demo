@@ -1,0 +1,25 @@
+---
+- name: Update the index.html of our basic website
+  hosts: managed
+  become: true
+  tasks:
+    - name: Ensure httpd is installed
+      ansible.builtin.package:
+        name: httpd
+        state: present
+    - name: Start and enable httpd
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: true
+    - name: Open http port in firewalld immediately
+      ansible.posix.firewalld:
+        port: 80/tcp
+        permanent: true
+        state: enabled
+        immediate: true
+    - name: Push our index.html content
+      ansible.builtin.template:
+        src: /home/bkrumme/ansibleprojects/eda_demo/templates/index.html.j2
+        dest: /var/www/html/index.html
+        mode: '0644'

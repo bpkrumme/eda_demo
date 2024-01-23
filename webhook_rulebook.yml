@@ -12,4 +12,4 @@
       condition: event.payload.repository.name == "eda_demo"
       action:
         run_playbook:
-          name: update_site_code.yml
+          name: deploy_site.yml
